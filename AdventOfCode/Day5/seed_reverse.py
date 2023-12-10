@@ -19,49 +19,49 @@ print(seeds)
 i = 3
 seed_to_soil = []
 while len(lines[i].strip()) > 0:
-    seed_to_soil.append(lines[i].strip())
+    seed_to_soil.append(list(map(int, lines[i].split())))
     i += 1
 print(seed_to_soil)
 
 i += 2
 soil_to_fertilizer = []
 while len(lines[i].strip()) > 0:
-    soil_to_fertilizer.append(lines[i].strip())
+    soil_to_fertilizer.append(list(map(int, lines[i].split())))
     i += 1
 print(soil_to_fertilizer)
 
 i += 2
 fertilizer_to_water = []
 while len(lines[i].strip()) > 0:
-    fertilizer_to_water.append(lines[i].strip())
+    fertilizer_to_water.append(list(map(int, lines[i].split())))
     i += 1
 print(fertilizer_to_water)
 
 i += 2
 water_to_light = []
 while len(lines[i].strip()) > 0:
-    water_to_light.append(lines[i].strip())
+    water_to_light.append(list(map(int, lines[i].split())))
     i += 1
 print(water_to_light)
 
 i += 2
 light_to_temperature = []
 while len(lines[i].strip()) > 0:
-    light_to_temperature.append(lines[i].strip())
+    light_to_temperature.append(list(map(int, lines[i].split())))
     i += 1
 print(light_to_temperature)
 
 i += 2
 temperature_to_humidity = []
 while len(lines[i].strip()) > 0:
-    temperature_to_humidity.append(lines[i].strip())
+    temperature_to_humidity.append(list(map(int, lines[i].split())))
     i += 1
 print(temperature_to_humidity)
 
 i += 2
 humidity_to_location = []
 while i < len(lines):
-    humidity_to_location.append(lines[i].strip())
+    humidity_to_location.append(list(map(int, lines[i].split())))
     i += 1
 print(humidity_to_location)
 
@@ -104,7 +104,8 @@ locations = []
 
 def getBackRecord(num, mapping):
     for record in mapping:
-        src, dst, val = list(map(int, record.split()))
+        # src, dst, val = list(map(int, record.split()))
+        src, dst, val = record
         if num >= src and num <= src + val:
             # print(dst + num - src)
             return dst + num - src
