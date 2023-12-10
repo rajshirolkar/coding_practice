@@ -12,7 +12,7 @@ cubeNums = {
     "blue": 14,
 }
 res = []
-lines = read_file("input.txt")
+lines = read_file("example.txt")
 
 
 def partOne(lines):
@@ -44,16 +44,22 @@ def part2(lines):
         gameNo = int(line.split(":")[0].split(" ")[1])
 
         sets = game.split(";")
-        invalid = False
+        maxDict = {
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+        }
         for set in sets:
             turn = set.split(",")
             # print(turn)
             for t in turn:
                 num, color = t.split()
                 num = int(num)
-                if num > cubeNums[color]:
-                    invalid = True
-                    break
-        if not invalid:
-            res.append(gameNo)
+                if num > maxDict[color]:
+                    maxDict[color] = num
+        minmul = maxDict["red"] * maxDict["green"] * maxDict["blue"]
+        res.append(minmul)
     print(sum(res))
+
+
+part2(lines)
