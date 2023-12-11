@@ -17,7 +17,7 @@ numWordsRegex = r"one|two|three|four|five|six|seven|eight|nine|1|2|3|4|5|6|7|8|9
 reverseNumWordsRegex = r"eno|owt|eerht|ruof|evif|xis|neves|thgie|enin|1|2|3|4|5|6|7|8|9"
 
 
-# write a function the takes text input from a file and returns prints the text
+# write a function the takes text input.txt from a file and returns prints the text
 def read_file(file_name):
     input_array = []
     # Open the file in read mode

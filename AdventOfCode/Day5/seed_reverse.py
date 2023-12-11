@@ -6,7 +6,7 @@ def read_file(file_name):
         return input_array
 
 
-lines = read_file("input.txt")
+lines = read_file("milind_input.txt")
 
 
 def mapper():
