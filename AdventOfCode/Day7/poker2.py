@@ -143,19 +143,19 @@ def rank_hands(hand1, hand2):
     hand2 = hand2[0]
     for i in range(5):
         # print(hand1[i], hand2[i])
-        if card_ranks[hand1[i]] > card_ranks[hand2[i]]:
+        if card_ranks_with_Joker[hand1[i]] > card_ranks_with_Joker[hand2[i]]:
             return 1
-        elif card_ranks[hand1[i]] < card_ranks[hand2[i]]:
+        elif card_ranks_with_Joker[hand1[i]] < card_ranks_with_Joker[hand2[i]]:
             return -1
     return 0
 
 
-def part1(hands, bids):
+def part2(hands, bids):
     hand_types = {i: [] for i in range(7)}
 
     # put hands into hand_types
     for i, hand in enumerate(hands):
-        hand_types[get_hand_type(hand)].append((hand, bids[i]))
+        hand_types[get_hand_type_with_joker(hand)].append((hand, bids[i]))
 
     # sort each hand type
     for i in range(7):
@@ -177,5 +177,5 @@ def part1(hands, bids):
     return ans
 
 
-print(part1(hands, bids))
+print(part2(hands, bids))
 # print(get_hand_type(hands[0]))
