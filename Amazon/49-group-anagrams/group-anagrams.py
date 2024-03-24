@@ -1,13 +1,13 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        md = {}
-        for s in strs:
-            ss = ''.join(sorted(s))
-            if ss in md:
-                md[ss].append(s)
+        ana_map = {}
+        for word in strs:
+            sort_word = ''.join(sorted(word))
+            if sort_word in ana_map:
+                ana_map[sort_word].append(word)
             else:
-                md[ss] = [s]
+                ana_map[sort_word] = [word]
         res = []
-        for v in md.values():
+        for v in ana_map.values():
             res.append(v)
         return res
