@@ -11,7 +11,6 @@ class Solution:
                 del log[0]
                 m = " ".join(log)
                 lexdict[m].append(l)
-                print(lexdict)
                 llog.append(m)
         llog.sort()
         res = []
