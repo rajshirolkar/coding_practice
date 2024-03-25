@@ -1,26 +1,15 @@
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
-        dlog, llog = [], []
-        lexdict = defaultdict(list)
-        for l in logs:
-            log = l.split(" ")
-            idf = log[0]
-            if log[1].isdigit():
-                dlog.append(l)
+        digit_logs, letter_logs = [], []
+        
+        for log in logs:
+            id, words = log.split(maxsplit=1)
+            
+            if words[0].isnumeric():
+                digit_logs += [log]    
             else:
-                del log[0]
-                m = " ".join(log)
-                lexdict[m].append(l)
-                llog.append(m)
-        llog.sort()
-        res = []
-        for s in llog:
-            if len(lexdict[s]) > 1:
-                lexdict[s].sort(key = lambda x:x[0])
-                res.append(lexdict[s][0])
-                del lexdict[s][0]
-            else:
-                res.append(lexdict[s][0])
-        for d in dlog:
-            res.append(d)
-        return res
+                letter_logs += [log]
+
+        letter_logs.sort(key=lambda log: (log.split(maxsplit=1)[1], log.split(maxsplit=1)[0]))
+
+        return letter_logs + digit_logs        
