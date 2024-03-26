@@ -11,5 +11,4 @@ class Solution:
             slow = nums[slow]
             slow2 = nums[slow2]
             if slow == slow2:
-                print(nums[slow])
                 return slow
