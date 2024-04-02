@@ -1,9 +1,7 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
         d = {}
-        sc = set(s)
-        tc = set(t)
-        if len(sc) != len(tc):
+        if len(set(s)) != len(set(t)):
             return False
         
         for i in range(len(s)):
