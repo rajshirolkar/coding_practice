@@ -3,13 +3,7 @@ class Solution:
         time = 0
         for i, n in enumerate(tickets):
             if i <= k:
-                if n <= tickets[k]:
-                    time += n
-                else:
-                    time += tickets[k]
+                time += min(n, tickets[k])
             else:
-                if n < tickets[k]:
-                    time += n
-                else:
-                    time += tickets[k]-1
+                time += min(n, tickets[k]-1)
         return time
