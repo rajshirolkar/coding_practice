@@ -44,12 +44,12 @@ class Solution:
                                 que.append([r+dr, c+dc])
         for i in range(ROWS):
             for j in range(COLS):
-                if grid1[i][j] == 1 and grid2[i][j] == 1:
+                if grid2[i][j] == 1:
                     num_islands += 1
                     que = deque([(i,j)])
                     while que:
                         r,c = que.popleft()
-                        if 0 <= r < ROWS and 0 <= c < COLS and grid2[r][c] == 1 and grid1[r][c]==1:
+                        if 0 <= r < ROWS and 0 <= c < COLS and grid2[r][c] == 1 and grid2[r][c]==1:
                             grid2[r][c] = 0
                             for dr, dc in directions:
                                 que.append([r+dr, c+dc])
