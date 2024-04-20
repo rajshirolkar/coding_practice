@@ -21,8 +21,9 @@ class Solution:
             dfs(r, 0, pac, heights[r][0])
             dfs(r, COLS-1, atl, heights[r][COLS-1])
         
-        intersect = pac.intersection(atl)
-        res = []
-        for r,c in intersect:
-            res.append([r,c])
-        return res
+        # intersect = pac.intersection(atl)
+        # res = []
+        # for r,c in intersect:
+        #     res.append([r,c])
+        # return res
+        return [[r,c] for r,c in pac.intersection(atl)]
