@@ -7,13 +7,27 @@ class Solution:
             graph[k].append(v)
             graph[v].append(k)
         
-        def dfs(node):
+        # BFS approach
+        que = deque([source])
+        visit.add(source)
+        while que:
+            node = que.popleft()
             if node == destination:
                 return True
-            visit.add(node)
             for nei in graph[node]:
                 if nei not in visit:
-                    if dfs(nei):
-                        return True
-            return False
-        return dfs(source)
+                    visit.add(nei)
+                    que.append(nei)
+        return False
+        
+        # DFS Approach
+        # def dfs(node):
+        #     if node == destination:
+        #         return True
+        #     visit.add(node)
+        #     for nei in graph[node]:
+        #         if nei not in visit:
+        #             if dfs(nei):
+        #                 return True
+        #     return False
+        # return dfs(source)
