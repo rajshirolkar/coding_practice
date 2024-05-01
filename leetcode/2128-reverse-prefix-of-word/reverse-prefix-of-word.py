@@ -4,8 +4,6 @@ class Solution:
         res = word
         for i, c in enumerate(word):
             if c == ch:
-                res = word[:i+1][::-1]
-                # print(word[:i])
-                res += word[i+1:]
+                res = word[:i+1][::-1] + word[i+1:]
                 break
         return res
